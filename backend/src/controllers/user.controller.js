@@ -47,7 +47,7 @@ const register = async (req, res) => {
             return res.status(httpStatus.FOUND).json({ message: "User already exists" });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);// Hasheing the password with salt rounds = 10
+        const hashedPassword = await bcrypt.hash(password, 10);// Hashing the password with salt rounds = 10
 
         const newUser = new User({
             name: name,
