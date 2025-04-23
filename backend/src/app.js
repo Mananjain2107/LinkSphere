@@ -6,6 +6,7 @@ import {Server} from "socket.io";
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import cors from "cors";
+import userRoutes from "./routes/users.route.js"
 dotenv.config();
 
 const app=express();
@@ -17,6 +18,7 @@ app.use(cors());// Middleware to allow cross-origin requests
 app.use(express.json({limit:"40kb"}));// Middleware to parse incoming JSON requests (limited to 40kb size)
 app.use(express.urlencoded({limit:"40kb",extended:true}));// Middleware to parse URL-encoded data, also limited to 40kb
 
+app.use("/api/v1/users",userRoutes);
 
 const start = async () => {
     const connectionDb = await mongoose.connect(process.env.MONGODB_URL);
