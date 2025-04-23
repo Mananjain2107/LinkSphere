@@ -15,7 +15,7 @@ const io=connectToSocket(server);// Initialize socket.io on the HTTP server
 
 app.set("port",(process.env.PORT || 8000));
 app.use(cors());// Middleware to allow cross-origin requests
-app.use(express.json({limit:"40kb"}));// Middleware to parse incoming JSON requests (limited to 40kb size)
+app.use(express.json({limit:"40kb"}));// Middleware to parse(analyzing and converting data) incoming JSON requests (limited to 40kb size)
 app.use(express.urlencoded({limit:"40kb",extended:true}));// Middleware to parse URL-encoded data, also limited to 40kb
 
 app.use("/api/v1/users",userRoutes);
